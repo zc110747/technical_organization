@@ -124,7 +124,7 @@ all : $(EXCUTABLE)
 #等同于上述的main.o:main.c和hello/hello.o:hello/hello.c标签
 %.o : %.c                                           
 	$(CC) $(INCLUDE_PATH) $(CFLAGS) -c $< -o $@
-T
+
 #生成可执行文件
 #等同于上述target:hello/hello.o main.o标签
 $(EXCUTABLE):$(OBJECTS)
