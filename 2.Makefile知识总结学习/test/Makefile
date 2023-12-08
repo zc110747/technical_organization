@@ -42,4 +42,4 @@ CPPFlags = -std=c++11
 #-------------------------------------------------------------------------------
 
 # Including this file allows access to the Build System.
-include ../buildtool.mk
+include buildtool.mk
