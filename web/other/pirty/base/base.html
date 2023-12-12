@@ -1,0 +1,217 @@
+﻿<!DOCTYPE for my study， this is a separate statement>
+
+<html>
+<head>								
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">        <!-- meta 元素定义页面的描述 -->
+    <meta name="description" content="Free Web tutorials on HTML, CSS, XML" />
+    <!-- <meta http-equiv="Refresh" content="5" /> -->    <!-- 刷新 -->
+    <!-- 网页名 -->
+    <title>new</title>	
+
+    <!-- 内部样式表 -->
+    <style type="text/css">
+    h1 {color: red}
+    /* 伪类CSS */
+    a:link {color: blue}                    /* 未访问的链接 */
+    a:visited {color: MediumAquaMarine}     /* 已访问的链接 */ 
+    a:hover {color: #FF00FF}                /* 鼠标移动到链接上 */
+    a:active {color: red}                   /* 选定的链接 */
+    </style>
+
+    <!-- 链接外部样式表 -->
+    <link rel="stylesheet" type="text/css" href="myclass.css">      		
+</head>
+<body bgcolor="#FFFFFF">             <!-- 网页本体 背景颜色默认为白色，考虑兼容性必须设置-->
+    <h1 align= "center">Head</h1>    <!-- 居中标题 -->
+
+    <!-- 目录链接 -->
+    <p>目录<br/>                     
+    <small>
+    <a href="#text_style">1.基础标签(格式化)</a><br/>
+    <a href="#link_table">2.链接和表格</a><br/>
+    <a href="#list_form">3.列表和表单</a><br/>
+    <a href="#picture_style">4.图片和样式</a><br/>
+    <a href="#javascript_media">4.js和多媒体</a><br/>
+    </small></p>
+
+    <!-- 插入水平线 标签1-->
+    <a name="text_style"></a><hr/>   
+    <p>This is a new begining</p>    <!-- 输出行显示，默认html会忽略多个空格和换行，仅显示一个空格 -->	
+    <p>换行<br/>实现</p>			 <!-- br/ 用于实现换行 b加粗 sub下标 sup上标-->  
+    <b>字体加粗</b>			
+    <sub>1</sub>						
+    <sup>2</sup>	
+
+    <pre>                            <!-- 换行和空格会保留，适合用于计算机代码输出 -->							
+    换行和空格
+    会保留,适合用于保存代码输出
+    </pre>
+
+    <!-- 鼠标放上会显示缩写 -->
+    <abbr title="Internet Protocol">IP</abbr><br/>  
+
+    <!-- 文字反向输出 -->
+    <bdo dir="rtl">Here is some Hebrew text</bdo>
+
+    <!-- 块引用 -->
+    <blockquote>									
+    长的块引用，浏览器会插入换行和外边距。		
+    </blockquote>                                   
+    <q>                                             
+    短的块引用，浏览器插入双引号。
+    </q>
+
+    <!-- 特殊数据类型  删除 下划线-->
+    <p><del>删除</del>
+    <ins>下划线</ins></p><br/>       
+     
+    <!-- 插入水平线 标签2-->	
+    <a name="link_table"></a><hr/>
+
+    <!-- 链接 href链接地址 target打开框架 -->							 
+    <p><a href="http://www.baidu.com" target="_blank" style="text-decoration:none">百度一下 你就知道</a></p> 
+    <p>图像链接<a href="http://www.baidu.com"><img border="0" height="51" width="108"  align="middle" src="icons/bdlogo.png"  alt="百度" ismap /></a></p> 
+
+    <!-- 调用默认邮件服务器发送邮件给上述地址 -->                                  
+    <p>if you are confused，send mail to <a href="mailto:1107473010@qq.com">Zhang Chao</a></p>
+
+    <!-- 复杂邮件发送 cc抄送 bcc密码抄送 subject标题 body正文值 -->
+    <p>if you are confused，send mail to <a href="mailto:1107473010@qq.com?cc=1107473010@qq.com&bcc=1107473010@qq.com
+    &subject=I%20am%20confused&body=Thank%20you%20for%20reading">Zhang Chao</a></p>
+
+    <!-- 所有的表格都要写在table中 boder参数修改边框宽度 cellpadding单元格边距 background为添加背景图片 cellspacing为单元格内部参数边距-->
+    <table border="1" cellpadding="2" background="icons\goodreads.png" cellspacing="4">      
+        <caption>数据表格</caption>
+        <tr>                                <!-- tr代表换行，同一tr数据在表格同一行 -->		
+            <th></th>                       <!-- th代表表头 colspan 包含列数-->			
+            <th>第1列</th> 
+            <th colspan="2">第2列</th>	
+        <tr>
+            <th>第1行</th>
+        <td bgcolor="#CCFFAA">10</td>       <!-- td代表换列  bgcolor为背景颜色-->	
+            <td>20</td>		
+            <td>30</td>
+        </tr>			   						
+        <tr>
+            <th rowspan="2">第2行</th>      <!-- th代表表头  rowspan 包含行数-->
+            <td align="left">30</td>        <!-- align对齐方式-->
+            <td>40</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td align="right">30</td>
+            <td>40</td>
+            <td>50</td>
+        </tr>
+    </table><br/>
+
+    <!-- 插入水平线 标签3-->   
+    <a name="list_form"></a><hr/>           
+    <ul type="circle">                      <!-- 无序列表 -->
+        <li>牛奶</li>
+        <ul type="square">
+            <li>草莓味</li>
+            <li>芒果味</li>
+        </ul> 
+        <li>咖啡</li>
+        <li>果汁</li>
+    </ul>
+    <ol start="1" type="a">                 <!-- 有序列表 -->
+        <li>牛奶</li>					 
+        <li>咖啡</li>
+        <li>果汁</li>    	
+    </ol>
+    <dl>
+        <dt>学科</dt>
+        <dd>物理</dd>
+        <dd>化学</dd>
+        <dd>生物</dd>
+    </dl>
+
+    <!-- 文本域 -->
+    <textarea cols="20" rows="2">
+    这是文本框中的内容，你可以自由
+    的输入输出
+    </textarea>
+
+    <form action="get/import.cgi" method="get">               <!-- 表单提交，获得 -->
+    
+    <!-- 外框 -->
+    <fieldset>                              
+    <legend>登录信息</legend>
+    <!-- 文本框 -->
+    姓名:<input type="text" name="UserName"><br/>				
+    密码:<input type="password" name="UserPassword" /><br/>
+    </fieldset>
+    <!-- 复选框 -->
+    <input type="checkbox" name="book">&nbsp;书<br/>
+    <input type="checkbox" name="phone">&nbsp;手机<br/>
+
+    <!-- 下拉列表 -->
+    <select name="health">
+        <option value="good">good</option>
+        <option value="bad">bad</option>
+        <option value="general" selected="selected">general</option> <!-- selected表示被选中 -->
+    </select><br/>
+
+    <!-- 单选按钮 -->
+    <input type="radio" checked="checked" name="nationality" value="China">&nbsp;中国&nbsp;
+    <input type="radio" name="nationality" value="America">&nbsp;美国<br/>
+
+    <!-- 按键 -->
+    <input type="button" class="button1" name="button" value="Apply"><br/>
+    <input type="submit" value="submit"> <!-- form 提交按钮 -->
+    </form>
+    
+    <!-- 表单提交，动作方式为发送邮件 -->
+    <form action="mailto:1107473010@qq.com" method="post" enctype="text/plain">
+        姓名:&nbsp;<input type="text" name="username" value="username" size="20"><br/>
+        年龄:&nbsp;<input type="text" name="userage" value="userage" size="20"><br/>
+        <input type="submit" value="发送">
+        <input type="reset" value="重置">
+    </form></br>
+
+    <!-- 插入水平线 标签4-->   
+    <a name="picture_style"></a><hr/>
+    <img src="icons/eg_planets.jpg" border="0" usemap="#planetmap" alt="Planets" /> <!-- 图像链接 -->
+    
+    <map name="planetmap" id="planetmap">
+        <area shape="circle" coords="180,139,14" href="icons/eg_venus.gif" target ="_blank" alt="Venus" />
+        <area shape="circle" coords="129,161,10" href="icons/eg_merglobe.gif" target ="_blank" alt="Mercury" />
+        <area shape="rect" coords="0,0,110,260" href="icons/eg_sun.gif"target ="_blank" alt="Sun" />
+    </map>
+
+    <a name="javascript_media"></a><hr/>
+
+    <!-- 插入js语言 -->
+    <script type="text/javascript">
+        document.write("<h1>Hello World!</h1>")
+    </script>
+
+    <!-- 多媒体  flash加载swf文件 -->
+    <object width="400" height="40" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
+        <param name="SRC" value="bookmark.swf">
+        <embed src="media/新春兔逗送吉祥.swf" width="400" height="200"></embed><br/><br/>
+        <embed src="media/上课：关手机.swf"  width="400" height="200"></embed>
+    </object><br/><br/>
+
+    <!-- 多媒体  media加载wmv文件 -->
+
+    <object width="400" height="300" type="video/x-ms-asf" url="3d.wmv" data="3d.wmv" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6">
+        <param name="url" value="3d.wmv">
+        <param name="filename" value="3d.wmv">
+        <param name="autostart" value="1">
+        <param name="uiMode" value="full" />
+        <param name="autosize" value="1">
+        <param name="playcount" value="1">
+        <embed type="application/x-mplayer2" src="3d.wmv" width="400" height="300" autostart="true" showcontrols="true" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"></embed>
+    </object><br/><br/> 
+
+    <!-- 多媒体  播放音乐 -->
+    <object height="100" width="100" data="media/残酷月光.mp3"></object>
+    <audio controls="controls">
+        <source src="media/残酷月光.mp3" type="audio/mp3" />
+    </audio><br/><br/>
+
+</body>                                
+</html>

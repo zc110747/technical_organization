@@ -1,0 +1,12 @@
+pkill -9 node
+
+if [ x$1 == x ]; then
+  cd vue-manage-device/
+  npm run build
+  cd ../
+else
+  echo "only node run!"
+fi
+
+node server.js &
+

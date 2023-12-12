@@ -1,0 +1,24 @@
+{
+    "use_remote":false,
+    "local_mqtt":{
+        "socket_ip":"192.168.3.246",
+        "port":1883
+    },
+    "remote_mqtt":{
+        "socket_ip":"mq.tongxinmao.com",
+        "port":18830
+    },
+    "res_topic":"/public/weather/1",
+    "req_topic":"/public/weather/2",
+    "req_weather":false,
+    "city":"***",
+    "token":"***",
+    "socket":{
+        "socket_ip":"192.168.3.208",
+        "logger_port":15059
+    },
+    "node":{
+        "page":"/vue-manage-device/dist/",
+        "port":9093
+    }
+}

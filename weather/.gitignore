@@ -1,0 +1,7 @@
+*.pyc
+
+config.json
+weather_request/__pycache__
+weather_show/win_component/obj
+weather_show/win_component/.vs
+weather_show/node_component/node_modules

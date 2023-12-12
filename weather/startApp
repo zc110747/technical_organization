@@ -1,0 +1,38 @@
+#/usr/bin/bash
+
+FileConfig="weather_request/file/config.json"
+
+#关闭所有应用
+./killApp
+
+if [ x$1 != x ]; then
+    if [ $1 == "web" ]; then
+        pkill -9 node
+        cd weather_show/node_component/
+        ./startNode
+        cd ../../
+    elif [ $1 == "req" ]; then
+        if [ -f "$FileConfig" ]; then
+            echo "Config file $FileConfig exist, start service!"
+            sudo pkill -9 python
+            python3 weather_request/weather.py &
+        else
+            echo "File $FileConfig not exist, See README.md for more information!"
+        fi
+    else
+        echo "parameter invalid: $1"
+        echo "'startApp req' :python request start"
+        echo "'startApp web' :for web show start"
+    fi
+else
+    if [ -f "$FileConfig" ]; then
+        echo "Config file $FileConfig exist, start service!"
+        python3 weather_request/weather.py &
+
+        cd weather_show/node_component/
+        ./startNode
+        cd ../../
+    else
+        echo "File $FileConfig not exist, See README.md for more information!"
+    fi
+fi

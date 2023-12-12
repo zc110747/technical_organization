@@ -1,0 +1,50 @@
+<!Doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="../library/jquery-3.6.1.js"></script>
+    <script type="text/javascript" src="js/model.js"></script>
+    <link href="css/model.css" rel="stylesheet" type="text/css" />
+    <title>model.html</title>
+</head>
+<body>
+    <div class="container">
+    <ul class="list_box" id="list_box">
+        <script type="text/template" data-id="list_tpl">
+            <li class="list_item">
+                <h3>$title$</h3>
+                <p>$content$</p>
+            </li>
+        </script>
+    </ul>
+    </div>
+    <div class="Model1" id="Model1">
+        <table width="500" cellpadding="0" cellspacing="0" border="1">
+            <tbody>
+                <script type="text/template" data-id="list_tpl">
+                    <tr>
+                        <td>$title$</td>
+                        <td>$content$</td>
+                    </tr>
+                </script>
+            </tbody>
+        </table>    
+    </div>
+    <script type="text/javascript">
+        var htmlList = '';
+        htmlTemp = $("#list_box script[data-id='list_tpl']").html();
+        json_data.data.forEach(function(object) {
+            htmlList += htmlTemp.tmp(object);
+        });
+        $("#list_box").html(htmlList);
+
+        htmlList = '';
+        htmlTemp = $("#Model1 script[data-id='list_tpl']").html();
+        json_data.data.forEach(function(object) {
+            htmlList += htmlTemp.tmp(object);
+        });
+        htmlList = "<table width='500' border='1' cellpadding='0' cellspacing='0'><tbody>" + htmlList + "</tbody></table>"
+        $("#Model1").html(htmlList);
+    </script>
+</body>
+</html>

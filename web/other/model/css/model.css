@@ -1,0 +1,16 @@
+
+
+ul,li{
+    list-style: none;
+}
+.container{
+    font-size: 10px;
+    width: 200px;
+    margin-left: 20px;
+    padding: 1px;
+    background-color: #1B6540;
+}
+.list_box li{
+    color: #fff;
+    background-color: #4FA46B;
+}

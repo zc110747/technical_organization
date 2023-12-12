@@ -1,0 +1,7 @@
+{
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.updates.askBeforeDownload": true,
+    "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false
+}

@@ -1,0 +1,180 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script type="text/javascript">
+        document.write("Hello World!</br>");
+        var name = "Teny";
+        var someone =   {
+            name: "Bob",
+            family: 0,
+
+            information:{   
+            age : 15,
+            work    : "student",
+            showInfo :  function(){
+                            document.write("age: "+someone.information.age+"</br>");
+                            document.write("work: "+someone.information.work+"</br>");
+                            } 
+                        },
+            increment:function(inc){
+                        this.family += typeof inc == 'number'? inc:1;
+            },           
+            showName: function(){
+                            document.write(this.name+"</br>");
+                        }
+        };
+
+        var other = {
+            name: "Tom",
+            showName: someone.showName
+        };
+        other.showName();                       //Tom 此时this指向other
+
+        var show = someone.showName;
+        show();                                 //此时this指向全局对象window Teny
+
+        var theone = someone;           
+        theone.name = "Candy";                  //修改属性内变量
+        theone.information.hobby = "music";     //对于非对象本身参数，会将该属性添加到对象中
+        theone.showName();                      //Candy 此时this指向someone
+        someone.showName();                     //Candy 对象不拷贝，只能引用
+        someone.information.showInfo();     
+        document.write("hobby: "+someone.information.hobby+"</br>");
+        document.write(typeof someone.name + "</br>" + typeof someone.information.age + "</br>");     //查看对象的属性
+        if(someone.hasOwnProperty("name"))
+        {
+            document.write("object has type name!" + "</br>");   //检查对象是否包含某属性
+        }
+        delete theone.name;                                      //删除对象的某种属性，但是不会影响到原型
+        if(!someone.hasOwnProperty("name"))
+        {
+            document.write("object delete type name!" + "</br>");  
+        }
+
+        someone.increment(2);   //方法调用方式，this绑定指定对象someone
+        document.write(someone.family + "</br>");      //值为2
+
+        var add = function(a, b){
+            return (a+b);
+        };            
+
+        someone.addfamily = function()
+        {
+            that = this;
+            var helper = function(){
+                that.family = add(2,3);  //闭包调用  
+            };
+            helper();      //函数方式调用时，this被绑定到全局对象，则不会修改当前参数
+        }
+
+        someone.addfamily();
+        document.write(someone.family + "</br>");  //值为5
+
+        //新建一个构造器(了解即可，不建议使用)
+        var Quo = function(string)
+        {
+            this.status = string;
+        }
+
+        //添加公共方法 get_status
+        Quo.prototype.get_status = function(){
+            return this.status;
+        }
+
+        //构造一个Quo实例
+        var myQuo = new Quo('confused');
+        document.write(myQuo.get_status()+ "</br>");
+
+        var tarray = [3, 4];
+        var sum = add.apply(null, tarray);
+        document.write(sum + "</br>");
+
+        var statusobject = {
+            status : 'Apply test'
+        };
+        var status = Quo.prototype.get_status.apply(statusobject);  
+        
+        //类似与引用，借用其它对象的方法，此时this指针绑定的是statusobject
+        document.write(status + "</br>");
+
+        //函数被调用时，会附送多余的参数arguments，因此无特定参数函数是允许的
+        var sum = function(){
+            var i, sum = 0;
+            for(i=0; i<arguments.length; i+=1)
+            {
+                sum+= arguments[i];
+            }
+            return sum;
+        }
+        document.write(sum(1,2,3,4) + "</br>");  //输出10
+
+        //对象添加方法
+        Function.prototype.method = function (name, func){
+            if(!this.prototype[name])   //避免添加到已有的方法上面去，需要限定
+            {
+                this.prototype[name] = func;
+                return this;
+            }
+        }
+
+        Number.method('integer', function(){
+            return Math[this<0? 'ceil' : 'floor'](this);
+        });
+        document.write((-10/3).integer() + "</br>");
+
+        String.method('trim', function(){
+            return this.replace(/^\s+ | \s+$/g, '');    //正则表达式去除空格
+        })
+        document.write('"' + "  trim test  " + '"'+ "</br>");
+        document.write('"' + "  trim test  ".trim() + '"'+ "</br>");
+
+        //函数作用域，处处可见
+        var myobject = function(){
+            var value = 0;
+            return {
+                increment: function(inc){
+                    value += typeof inc === 'number'? inc:1;
+                    },
+                getValue: function(){
+                     return value;
+                } 
+            }
+        }();
+        myobject.increment(2);
+        document.writeln(myobject.getValue());
+
+         //递归实现渐变色
+        var fade = function(color, node){
+            var level = 1;
+            var status = 0;
+            var step = function(){
+                var hex = level.toString(16);
+                node.style.backgroundColor = color + hex + hex;
+                if(status == 0){
+                    level += 1;
+                    if(level == 15)
+                    {
+                        status = 1;
+                    }
+                }
+                if(status == 1){
+                    level -= 1;
+                    if(level == 0)
+                    {
+                        status = 0;
+                    }
+                }
+                setTimeout(step, 100);
+            };
+            setTimeout(step, 100);
+        };
+        fade('00DD', document.body);
+
+        var point ={x:2.3, y:4.1};
+        document.write("<br />" + point.x + "<br />");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

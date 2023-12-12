@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script type="text/javascript">
+        
+        //闭包实例
+        var quo = function(status){
+            return {
+                get_status:function(){
+                return status;
+                }
+            };
+        };
+        var myquo = quo("amazed");
+        document.write(myquo.get_status() + "<br />");
+        
+        //用构造函数定义方法
+        function Operator_add() {return this.begin + this.after;}
+        function Operator_minus() {return this.begin - this.after;}
+        function Operator_plus() {return this.begin * this.after;}
+        function Operator_div() {return this.begin / this.after;}
+        function Operator(a, b)
+        {
+            this.begin = a;
+            this.after = b;
+
+            this.add = Operator_add;
+            this.minus = Operator_minus;
+            this.plus = Operator_plus;
+            this.div = Operator_div;
+        }
+
+        var Op = new Operator(2, 2);
+        var a = Op.add();                //2+2=4
+        document.write(a + "<br />" );
+
+        //用原型继承实现上述过程
+        function math_minus() {return this.begin - this.after;}
+        function math_plus() {return this.begin * this.after;}
+        function math_div() {return this.begin / this.after;}
+        function math_compare(a, b){
+            return a.begin<b.begin?a:b;
+        }
+        function math(a, b)
+        {
+            this.begin = a;
+            this.after = b;
+        }
+
+        new math(0, 0);                     //创建并舍弃初始的math对象
+        math.prototype.minus = math_minus;  //添加原型对象公有方法minus
+        var c = new math(8, 2); 
+        c.div = math_div;                   //添加对象私有方法div
+        var out = c.div();                  //8/2=4
+        document.write(out + "<br />" );      
+        var out = c.minus();                //8-2=6
+        document.write(out + "<br />" );        
+
+        math.prototype.plus = math_plus;    //添加原型对象公有方法plus
+        out = c.plus();                     //8*2=16
+        document.write(out + "<br />" );
+
+        //类方法
+        var d = new math(6, 2);
+        math.compare = math_compare;
+        var e = math.compare(c, d);
+        document.write(e.begin + "<br />")
+        //out = d.div();                      //出错 div是对象c的私有属性
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

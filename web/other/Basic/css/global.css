@@ -1,0 +1,91 @@
+﻿body {
+	background-color: #ffffff;
+    margin: 0px;
+}
+
+#one_line{
+    margin:0px;
+    height: 100px;
+    width:200px;
+    float:left;
+    background-color: #99ffcc;
+}
+
+#one_row{
+    margin-left:200px;
+    height:100px;
+    background-color: #FF7F50;
+    font-style: normal;
+}
+
+#two_line {
+    margin:0px;
+    height: 150px;
+    width:40%;
+    float:left;
+    background-color:#FF1493;
+    font-style: italic;
+}
+
+#two_row{
+    margin-left:40%;
+    margin-top: -150px;
+    float:left;
+    width:30%;
+    height:150px;
+    background-color:#00FFFF;
+    font-style: oblique;
+}
+
+#two_three_row{
+    margin-left:70%;
+    height:150px;
+    background-color: #ADFF2F ;
+    font-style: inherit;
+}
+
+
+#three_line { 
+    margin:0px;
+    height:300px; 
+    width:20%;
+    float:left;
+    border: 1px solid #ccc;
+    background-color: #FF4500;
+}
+
+#three_line ul{
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+
+#three_line ul li{
+    background: #ccff11; 
+    padding: 0px 8px; 
+    height: 26px; 
+    line-height: 26px; 
+    border-bottom: 1px 
+    solid #CCC;
+}
+
+#three_line ul li ul 
+{ 
+    display:none; 
+    position: absolute; 
+    left: 300px; 
+    top: 0px; 
+    width:100px; 
+    border:1px 
+    solid #ccc; 
+    border-bottom:none; 
+}
+
+#three_line ul li.current ul { display:block;}
+#three_line ul li:hover ul { display:block;}
+
+#three_row {
+    height:300px; 
+    margin-left:20%;
+    background-color:#7FFF00;
+}
