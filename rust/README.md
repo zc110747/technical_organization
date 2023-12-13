@@ -2,9 +2,12 @@
 
 ## 基础说明
 
-主要参考官方文档目录: [https://github.com/rust-lang/book]()
-另包含中文说明:[ https://kaisery.github.io/trpl-zh-cn/title-page.html]()
-此外包含两部参考书:<Rust权威指南>和<Rust编程之道>.
+主要参考官方文档目录: <https://github.com/rust-lang/book>
+另包含中文说明:<https://kaisery.github.io/trpl-zh-cn/title-page.html>
+此外包含两部参考书:
+
+- <Rust权威指南>
+- <Rust编程之道>
 
 ## Cargo包管理器说明
 
@@ -21,7 +24,7 @@ help  [cmd]             查询选项的具体功能
 cargo install           编译和安装一个rust二进制包
 cargo uninstall         移除一个rust二进制包
 cargo run               执行Rust编译后可执行文件
-cargo fmt		格式化代码，需要通过rustup component add rustfmt先安装工具
+cargo fmt               格式化代码，需要通过rustup component add rustfmt先安装工具
 ```
 
 ### 添加依赖
@@ -51,6 +54,7 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 ## Rust权威指南学习
 
 ### Capture2-guess_game
+
 ```rust
     入口函数 fn main
     了解到包
@@ -61,6 +65,7 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 ```
 
 ### Capture3-base_comp
+
 ```rust
     1.rust变量默认是不可变的,允许修改的添加mut
     2.类型
@@ -84,6 +89,7 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 ```
 
 ### Capture4-owner_ship
+
 ```rust
     1. 字符串类型和字符串字面量类型
        String, &str, String::new(), String::from(),
